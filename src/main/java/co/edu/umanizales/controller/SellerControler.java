@@ -18,7 +18,7 @@ public class SellerControler {
         Seller juan = new Seller("1128901454","juan","perez", 'm', (byte) 22 ,manizales);
         Seller maria = new Seller("1514728602","maria","gomez", 'f', (byte) 31, pereira);
         Seller pepe = new Seller("1412549231","pepe","miranda", 'm', (byte) 39, manizales);
-        Seller pedro = new Seller("6451213047","pedro","lopez", 'm', (byte) 45, pereira);
+        Seller pedro = new Seller("6451213047","pedro","lopez", 'm', (byte) 45, manizales);
         Seller camila = new Seller("4578120312","camila","mejia", 'f', (byte) 25,  manizales);
 
 
