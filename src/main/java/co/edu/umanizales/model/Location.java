@@ -1,15 +1,16 @@
 package co.edu.umanizales.model;
-
-
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
 @AllArgsConstructor
 public class Location {
-    private String code;
-    private String description;
-
+    private String codigoDepartamento;
+    private String nombreDepartamento;
+    private String codigoMunicipio;
+    private String nombreMunicipio;
 }
+
+
