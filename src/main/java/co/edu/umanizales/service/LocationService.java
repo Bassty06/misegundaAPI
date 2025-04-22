@@ -20,7 +20,7 @@ public class LocationService {
     private final List<Location> locations = new ArrayList<>();
 
     @PostConstruct
-    public List<Location> loadLocationsFromCSV() {
+    public void loadLocationsFromCSV() {
         try (BufferedReader br = new BufferedReader(
                 new InputStreamReader(
                         Objects.requireNonNull(getClass().getResourceAsStream("/divipola.csv")),
@@ -50,13 +50,73 @@ public class LocationService {
 
         } catch (Exception e) {
             System.err.println("Error al cargar el archivo CSV:");
-        }
-        {
-            {
-                   return locations;
-        }
+            e.printStackTrace(); // ¡Esto es útil para depurar!
         }
     }
+
+    public List<Location> getLocations() {
+        return locations;
+    }
+
+    public Location getLocationByCode(String code) {
+        for (Location location : locations) {
+            if (location.getCode().equals(code)) {
+                return location;
+            }
+        }
+        return null;
+    }
+
+    public List<Location> getName(String nombreMunicipio) {
+        List<Location> states = new ArrayList<>();
+        for (Location location : locations) {
+            if (location.getNombreMunicipio().equalsIgnoreCase(nombreMunicipio)) {
+                states.add(location);
+            }
+        }
+        return states;
+    }
+
+    public List<Location> getLocationsByInitial(String letra) {
+        List<Location> states = new ArrayList<>();
+        for (Location location : locations) {
+            if (location.getNombreMunicipio().toLowerCase().startsWith(letra.toLowerCase())) {
+                states.add(location);
+            }
+        }
+        return states;
+    }
+
+    public List<Location> getStates(String nombreDepartamento) {
+        List<Location> states = new ArrayList<>();
+        for (Location location : locations) {
+            if (location.getNombreDepartamento().equalsIgnoreCase(nombreDepartamento)) {
+                states.add(location);
+            }
+        }
+        return states;
+    }
+
+    public List<Location> getStatesByCode(String codigoDepartamento) {
+        List<Location> states = new ArrayList<>();
+        for (Location location : locations) {
+            if (location.getCodigoDepartamento().equals(codigoDepartamento)) {
+                states.add(location);
+            }
+        }
+        return states;
+    }
+
+    public List<Location> getCapitales() {
+        List<Location> capitales = new ArrayList<>();
+        for (Location location : locations) {
+            if (location.getCode().length() == 5 && location.getCode().endsWith("01")) {
+                capitales.add(location);
+            }
+        }
+        return capitales;
+    }
+
 }
 
 

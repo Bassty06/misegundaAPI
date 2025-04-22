@@ -9,8 +9,9 @@ import lombok.NoArgsConstructor;
 public class Location {
     private String codigoDepartamento;
     private String nombreDepartamento;
-    private String codigoMunicipio;
+    private String code;
     private String nombreMunicipio;
+
 }
 
 
