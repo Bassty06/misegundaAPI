@@ -57,10 +57,10 @@ public class LocationService {
     public List<Location> getLocations() {
         return locations;
     }
-
+//metodos o funcines
     public Location getLocationByCode(String code) {
-        for (Location location : locations) {
-            if (location.getCode().equals(code)) {
+        for (Location location : locations) { //itera
+            if (location.getCode().equals(code)) { //condicion
                 return location;
             }
         }
@@ -68,7 +68,7 @@ public class LocationService {
     }
 
     public List<Location> getName(String nombreMunicipio) {
-        List<Location> states = new ArrayList<>();
+        List<Location> states = new ArrayList<>();//lo que cumple con el if
         for (Location location : locations) {
             if (location.getNombreMunicipio().equalsIgnoreCase(nombreMunicipio)) {
                 states.add(location);
@@ -116,7 +116,16 @@ public class LocationService {
         }
         return capitales;
     }
-
+    // metodo que filtra segun el largo de su nombre
+    public List<Location> getLocationsByNameLength(int length) {
+        List<Location> filteredLocations = new ArrayList<>();
+        for (Location location : locations) {
+            if (location.getNombreMunicipio().length() > length) {
+                filteredLocations.add(location);
+            }
+        }
+        return filteredLocations;
+    }
 }
 
 

@@ -1,20 +1,18 @@
 package co.edu.umanizales.model;
-
-
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
 @AllArgsConstructor
 public class Seller {
-    private String identification;
-    private String name;
-    private String lastName;
-    private char gender;
-    private byte age;
-    private Location city;
-
-
+    private String cedula;
+    private String nombres;
+    private String apellidos;
+    private String sexo;
+    private int edad;
+    private String ciudad;
 }
+
+

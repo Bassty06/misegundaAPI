@@ -3,10 +3,8 @@ package co.edu.umanizales.controller;
 import co.edu.umanizales.model.Location;
 import co.edu.umanizales.service.LocationService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -54,6 +52,12 @@ public class LocationController {
     @GetMapping("/capitales")
     public List<Location> getCapitales() {
         return locationService.getCapitales();
+    }
+
+    // Ruta para obtener localidades cuyo nombre del municipio tenga una longitud mayor a 'length'
+    @GetMapping("/largo")
+    public List<Location> getLocationsByNameLength(@RequestParam int length) {
+        return locationService.getLocationsByNameLength(length);
     }
 
 }
